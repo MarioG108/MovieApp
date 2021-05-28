@@ -5,25 +5,32 @@ function Home() {
     const style = {
         backgroundColor: '#fff',
         with: '40px',
-        height: '25vh',
+        height: '28vh',
         color: 'black',
         positionX: '50%'
     }
     return (<div>
         <h1>home Page</h1>
         <Carousel
-            items="5"
-            margin="3"
+           
             smartSpeed="2000"
             autoplayTimeout="3500">
             <div style={style} className="text-center"><span>1</span></div>
             <div style={style} className="text-center"><span>2</span></div>
             <div style={style} className="text-center"><span>3</span></div>
         </Carousel>
+        <hr></hr><Carousel
+            
+            smartSpeed="2000"
+            autoplayTimeout="3500">
+            <div style={style} className="text-center"><span>1</span></div>
+            <div style={style} className="text-center"><span>2</span></div>
+            <div style={style} className="text-center"><span>3</span></div>
+            <div style={style} className="text-center"><span>4</span></div>
+        </Carousel>
         <hr></hr>
         <Carousel
-            items="6"
-            margin="4"
+            
             smartSpeed="2000"
             autoplayTimeout="3500">
             <div style={style} className="text-center"><span>1</span></div>

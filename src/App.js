@@ -1,4 +1,4 @@
-import Navbar from './Components/header.jsx'
+import Navbar from './Components/navbar.jsx'
 import Home from './Components/home.jsx'
 import Footer from './Components/footer.jsx'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
