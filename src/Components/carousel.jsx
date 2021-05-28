@@ -1,29 +1,47 @@
-import React, { useState} from 'react'
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import React, { useState,useEffect } from 'react'
+
+
+// Import Swiper React components
+import SwiperCore, { Navigation, Scrollbar, Zoom } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
+import 'swiper/components/navigation/navigation.scss';
+// install Swiper modules
+SwiperCore.use([Navigation, Scrollbar, Zoom]);
+
 function Carousel(props) {
-    const { smartSpeed, autoplayTimeout } = props;
-    const [childs] = useState([...props.children])
-    
+    const {slides, SpaceBetween } = props;
+    var children = [props.children];
+    const [childs, setchilds] = useState([...children])
+
+useEffect(() => {
+    setchilds([...props.children])
+  
+}, [])
 
     return (
         <>
-            <OwlCarousel
-                className='owl-theme'
-                loop
-                items={4}
-                 dots={false}
-                margin={5}
-                autoplay={true}
-                smartSpeed={smartSpeed}
-                autoplayTimeout={autoplayTimeout}
-                pullDrag={1000}
-                autoplayHoverPause={true}
-                > 
-               
-                {childs}
-            </OwlCarousel>)
+
+            <Swiper
+                autoHeight={true}
+                loop={true}
+                scrollbar={{ draggable: true }}
+                navigation
+                slidesPerView={(typeof(slides) == 'undefined' ||slides <= 0 ? 5 : slides )}
+                spaceBetween={(typeof(SpaceBetween) === 'undefined' || SpaceBetween <= 0 ?  3 :SpaceBetween )}
+
+            >
+                {childs.map((child, index) => {
+                    return (
+                        <SwiperSlide key={index} >
+                            {child}
+                        </SwiperSlide>
+                        )
+                })}
+            </Swiper>
         </>
     )
 }

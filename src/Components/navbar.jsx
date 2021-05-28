@@ -14,7 +14,7 @@ function Navbar() {
         <nav className="navbar navbar-expand-md navbar-dark " style={navStyle}>
             <div className="container">
 
-                <Link className="navbar-brand" to="/">Start Boostrap</Link>
+                <Link className="navbar-brand" to="/">Movie Master</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                     <span className="navbar-toggler-icon"></span>
                 </button>

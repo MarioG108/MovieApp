@@ -8,7 +8,7 @@ function App() {
     <div >
       <Router>
         <Navbar></Navbar>
-        <div className="container" style={{ paddingTop: '70px' }}>
+        <div className="container-fluid" style={{ paddingTop: '70px' }}>
           <Switch>
             <Route path="/" exact> <Home></Home></Route>
           </Switch>
