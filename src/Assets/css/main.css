@@ -11,13 +11,28 @@ html {
     font-family: 'Ubuntu', sans-serif;
     background-color: #2b2b31;
     color: #fff;
-    font-weight: b;
+    font-weight: normal;
     -webkit-font-smoothing: antialiased;
   }
   #footer {
     padding-top: 10px;
+    position: static;
     z-index: 5;
     bottom: 0;
     width: 100%;
     height: 2.5rem;            /* Footer height */
+  }
+/* un used*/
+  .post{
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 28vh;
+    color: black;
+    position: 50%,0;
+
+  }
+
+  .card-img-overlay{
+    color:black !important;
+   
   }
