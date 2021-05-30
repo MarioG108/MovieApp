@@ -13,17 +13,20 @@ import 'swiper/components/navigation/navigation.scss';
 // install Swiper modules
 SwiperCore.use([Navigation, Scrollbar, Lazy]);
 
-function Carousel({autoHeight =false, children}) {
-    
+function Carousel({ autoHeight = false, children }) {
+
     return (
         <>
-        
+
             <Swiper
+                watchSlidesProgress={true}
+                watchSlidesVisibility={true}
+                preloadImages={true}
                 breakpoints={{
                     // when window width is >= 320
                     0: {
                         slidesPerView: 1,
-                        spaceBetween: 1
+                        spaceBetween: 1,
                     },
                     // when window width is >= 380px
                     320: {
@@ -39,7 +42,7 @@ function Carousel({autoHeight =false, children}) {
                     // when window width is >= 640px
                     640: {
                         slidesPerView: 3,
-                        spaceBetween: 3 
+                        spaceBetween: 3
                     },
                     1024: {
                         slidesPerView: 8,
@@ -53,16 +56,16 @@ function Carousel({autoHeight =false, children}) {
             >
 
                 {
-                    
+
                     typeof (children) != 'undefined' && children.length > 1 ?
                         children.map((child, index) => {
                             return (
-                                <SwiperSlide key={index} className="swiper-lazy"  >
+                                <SwiperSlide key={index} className="swiper-lazy"   >
                                     {child}
                                     <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                                 </SwiperSlide>
                             )
-                        }) : <div className="wrapper" >                                    <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div></div>
+                        }) : <div className="wrapper" ><div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div></div>
 
                 }
 
