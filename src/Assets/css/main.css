@@ -1,38 +1,79 @@
 html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-  }
-  html,
-  body {
-    height: 100%;
-    
-  }
-  body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #2b2b31;
-    color: #fff;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
-  }
-  #footer {
-    padding-top: 10px;
-    position: static;
-    z-index: 5;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;            /* Footer height */
-  }
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #2b2b31;
+  color: #fff;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+#footer {
+  padding-top: 10px;
+  position: static;
+  z-index: 5;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  /* Footer height */
+}
+
 /* un used*/
-  .post{
-    background-color: #f3f3f3;
-    width: 100%;
-    height: 28vh;
-    color: black;
-    position: 50%,0;
 
-  }
+.post {
+  background-color: #f3f3f3;
+  width: 100%;
+  height: 28vh;
+  color: black;
+  position: 50%, 0;
+}
 
-  .card-img-overlay{
-    color:black !important;
-   
-  }
+.card {
+  height: 100%;
+  transition:  transform .3s ease-in-out;
+  z-index: 0;
+}
+
+.card:hover {
+  z-index: 5;
+  transform: scale(1.1);
+}
+
+.card:hover span {
+  scale: 10%;
+  color: red;
+}
+.card:hover>.card-img-overlay {
+  visibility: visible;
+  display: block;
+  bottom: 0 !important;
+  overflow: hidden;
+  transition: .4s  ease-out;
+  background-color: rgba(255, 255, 255, 0.3);
+  top:0%;
+}
+
+
+.card-img-overlay {
+  color: black !important;
+  backdrop-filter: blur(5px);
+  height: fit-content;
+  top: -100%;
+  overflow: hidden;
+  visibility: hidden;
+  transition: .4s  ease-out;
+
+}
+
+
+.swiper-container {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}

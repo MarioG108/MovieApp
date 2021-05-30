@@ -28,22 +28,11 @@ function Home() {
     }, [slides])
     return (<div>
         <h1>HOME PAGE</h1>
-        <Carousel slides={6} SpaceBetween={1} scroll={true}>
+        <Carousel slides={6} autoHeight={true} >
             {slides}
 
         </Carousel>
-        <Carousel slides={10} SpaceBetween={1} scroll={true}>
-            {slides}
-
-        </Carousel>
-        <Carousel slides={5} SpaceBetween={1} scroll={true}>
-            {slides}
-
-        </Carousel>
-        <Carousel slides={3} SpaceBetween={2} scroll={true}>
-            {slides}
-
-        </Carousel>
+       
     </div>
     )
 }
