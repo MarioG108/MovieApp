@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom'
 import Header from './header';
 import Preloader from '../preloader.jsx'
 const api_key = '2dc9a9ee49a9191b5b1a629fa423fe71';
@@ -17,10 +18,12 @@ async function getDetails(mediaId = 284054) {
 function Details() {
     const [isloading, setIsloading] = useState(true)
     const [mediainfo, setMediainfo] = useState({})
+    const {id} = useParams()
 
     useEffect(() => {
+        console.log({id})
         async function load() {
-            const response = await getDetails()
+            const response = await getDetails(id)
             if (response.ok) {
                 const details = await response.json()
                 setMediainfo(details)
@@ -29,18 +32,8 @@ function Details() {
         }
         if (isloading) {
             load()
-
         }
-
-    })
-
-    return (<>
-        {
-            isloading ?
-            <Preloader/>
-            
-            : <Header {...mediainfo} />
-        }
-    </>)
+    },[id])
+    return (<>{isloading ?<Preloader />:<Header {...mediainfo} />}</>)
 }
 export default Details;
