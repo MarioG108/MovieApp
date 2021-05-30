@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Carousel from './Slider/carousel.jsx'
-import Slide from './Slider/slider.jsx'
+import Preloader from './preloader.jsx'
+import Carousel from './Slider/carousel'
+import Slide from './Slider/slider'
 
 function Home() {
+    const [isloading, setIsloading] = useState(true)
 
     const [slides, setSlides] = useState([])
 
@@ -22,19 +24,25 @@ function Home() {
                 releaseDate={date.getFullYear()}
             />
             setSlides([...slides, newSlide])
+            setIsloading(false)
         }, 1500);
         return () => {
             clearTimeout(timer1);
         };
     }, [slides])
-    return (<div>
+    return (<>
+    {            isloading ?
+        <Preloader/>
+        
+        :  <div>
         <h1>HOME PAGE</h1>
         <Carousel slides={6} autoHeight={true} >
             {slides}
 
         </Carousel>
 
-    </div>
+    </div>}
+    </>
     )
 }
 

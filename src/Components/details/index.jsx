@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Header from './header'
-
+import Header from './header';
+import Preloader from '../preloader.jsx'
 const api_key = '2dc9a9ee49a9191b5b1a629fa423fe71';
 
 async function getDetails(mediaId = 284054) {
@@ -36,7 +36,10 @@ function Details() {
 
     return (<>
         {
-            isloading ? <h1>loading</h1> : <Header {...mediainfo} />
+            isloading ?
+            <Preloader/>
+            
+            : <Header {...mediainfo} />
         }
     </>)
 }

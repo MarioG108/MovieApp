@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Header(props) {
-    const { poster_path, title, release_date, overview, vote_average, backdrop_path, genres } = { ...props }
+function Header({ poster_path, title, release_date, overview, vote_average, backdrop_path, genres }) {
+
     const baseimg = 'https://image.tmdb.org/t/p/'
 
     return (<div className='details-header' style={{ backgroundImage: `url(${baseimg}/original/${backdrop_path})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
@@ -15,13 +15,14 @@ function Header(props) {
                         <div className="row title">
                             <h2>{title} <span>({release_date.substring(0, 4)})</span></h2>
                         </div>
-                        <div className="row info">
-                            <span className="card-text "><i className="fas fa-star" style={{ color: '#ffa41c' }}></i> {vote_average +'/10'}</span>
+                        <div className="row info ">
+                            <span className=" ">
+                                {release_date}
+                            </span>
+                            {genres.map((genre,key) => <span key={key} className=" genre">{`${genre.name}`} </span>)}
                         </div>
                         <div className="row info">
-                            <span className="card-text ">
-                                {genres.map((genre) => `${genre.name} `)}
-                            </span>
+                            <span className=" "><i className="fas fa-star" style={{ color: '#ffa41c' }}></i> {vote_average + '/10'}</span>
                         </div>
                         <div className="row description">
                             <p>

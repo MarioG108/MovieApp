@@ -1,6 +1,6 @@
 import Navbar from './Components/navs/navbar'
-import Home from './Components/home.jsx'
-import Details from './Components/details/index.jsx'
+import Home from './Components/home'
+import Details from './Components/details/index'
 import Footer from './Components/navs/footer'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
