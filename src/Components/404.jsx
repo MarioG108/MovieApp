@@ -10,7 +10,7 @@ function NotFound() {
     }, 3000);
     return () => clearTimeout(timer)
 
-  }, [])
+  }, [history])
   return (
     <div className="center">
       <h2><code>404 Page Not Found</code></h2>

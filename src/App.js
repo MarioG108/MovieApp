@@ -14,7 +14,7 @@ function App() {
           <Route path="/" exact> <Home /></Route>
           <Route path="/home" exact><Redirect to="/"/></Route>
           <Route path="/details/" exact> <Details /></Route>
-          <Route path="/details/:id" exact> <Details /></Route>
+          <Route path="/details/:movie_id" exact> <Details /></Route>
           <Route path="*"><NotFound /></Route>
         </Switch>
       </div>

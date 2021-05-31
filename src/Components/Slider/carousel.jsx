@@ -1,10 +1,7 @@
 import React from 'react'
-
-
 // Import Swiper React components
 import SwiperCore, { Navigation, Scrollbar, Lazy } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';

@@ -1,42 +1,45 @@
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom'
-import Header from './header';
+import { useParams } from 'react-router-dom'
 import Preloader from '../preloader.jsx'
+import Header from './header';
 import Videos from './videos'
-const api_key = '2dc9a9ee49a9191b5b1a629fa423fe71';
-const videos = [{key:"zkWiTLKE0mg"},{key:"HnnRyhuX_jM"}]
-async function getDetails(mediaId = 284054) {
-    try {
-        const endpoint = `https://api.themoviedb.org/3/movie/${mediaId}?api_key=${api_key}`;
-        // const endpoint = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${api_key}`;
-        const requestConfig = { method: 'get', mode: 'cors', headers: { 'Content-Type': 'application/json' } }
-        const response = await fetch(endpoint, requestConfig)
-        return response;
-    } catch (error) { console.error(error) }
+import Crews from './actors'
+import { GetDetails, GetVideos, GetCredits } from '../../Services/apicontroller'
 
-}
 
 function Details() {
+    const { movie_id } = useParams()
     const [isloading, setIsloading] = useState(true)
     const [mediainfo, setMediainfo] = useState({})
-    const {id} = useParams()
+    const [video, setVideo] = useState([{}])
+    const [crew, setCrew] = useState([{}])
 
     useEffect(() => {
-        console.log({id})
         async function load() {
-            const response = await getDetails(id)
+            const response = await GetDetails(movie_id)
             if (response.ok) {
                 const details = await response.json()
                 setMediainfo(details)
-                setIsloading(false)
             }
+            GetVideos(movie_id).then(
+                results => setVideo(results)
+            )
+            const credits = await GetCredits(movie_id)
+            if (credits.ok) {
+                const creditsDetails = await credits.json()
+                setCrew(creditsDetails)
+            }
+            setIsloading(false)
         }
         if (isloading) {
             load()
         }
-    },[id])
-    return (<>{isloading ?<Preloader />:<div>
-    <Header {...mediainfo} />
-    <Videos videos={videos}/></div>}</>)
+    }, [mediainfo])
+    return (<>{isloading ? <Preloader /> : <div>
+        <Header {...mediainfo} />
+        {/*<Crews cast={crew.cast} /> */}
+        <Videos videos={video.results} />
+    </div>
+    }</>)
 }
 export default Details;
