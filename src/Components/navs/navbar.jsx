@@ -18,8 +18,8 @@ useEffect(() => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
-                        <li className={`nav-item ${currentpage.includes('home') ? 'active':'inactive'} `}>
-                            <Link className="nav-link" to="/home">Home <span className="sr-only">(current)</span></Link>
+                        <li className={`nav-item ${currentpage==='/' ? 'active':'inactive'} `}>
+                            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                             
                         <li className={`nav-item ${currentpage.includes('details')? 'active':'inactive'} `}>

@@ -3,11 +3,14 @@ import { useHistory } from 'react-router-dom';
 
 function NotFound() {
   const history = useHistory()
+
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       history.push("/")
     }, 3000);
-  })
+    return () => clearTimeout(timer)
+
+  }, [])
   return (
     <div className="center">
       <h2><code>404 Page Not Found</code></h2>
