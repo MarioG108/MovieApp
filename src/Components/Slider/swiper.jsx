@@ -10,7 +10,7 @@ import 'swiper/components/navigation/navigation.scss';
 // install Swiper modules
 SwiperCore.use([Navigation, Scrollbar, Lazy]);
 
-function Carousel({ autoHeight = false, children }) {
+function Carousel({ children ,loop=true}) {
 
     return (
         <>
@@ -46,8 +46,9 @@ function Carousel({ autoHeight = false, children }) {
                         spaceBetween: 1
                     },
                 }}
-                loop={true}
+                loop={loop}
                 scrollbar={{ draggable: true }}
+                grabCursor={true}
                 navigation
                 lazy={true}
             >

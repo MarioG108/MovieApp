@@ -24,11 +24,7 @@ useEffect(() => {
                             
                         <li className={`nav-item ${currentpage.includes('details')? 'active':'inactive'} `}>
                             <Link className="nav-link" to="/details/">details </Link>
-                        </li>
-
-                        <li className={`nav-item ${currentpage.includes('/faq')? 'active':'inactive'} `}>
-                            <Link className="nav-link" to="/InvalidURL">404 Not Found </Link>
-                        </li>
+                        </li>                    
                         
                     </ul>
                 </div>

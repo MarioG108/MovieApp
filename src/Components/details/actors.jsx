@@ -1,51 +1,30 @@
-import Carousel from '../Slider/carousel'
-import { useState, useEffect } from 'react';
-
+import Carousel from '../Slider/swiper'
+import { ReactComponent as Unknownuser } from '../../Assets/icon/unknowuser.svg'
 const baseimg = 'https://image.tmdb.org/t/p/'
 
 function Crews({ cast }) {
-    const [cards, setCards] = useState([{}])
+    return (<div className="container">
+        <Carousel loop={false}>
+            {cast.map((actor, key) => {
 
+                return (
 
-    useEffect(() => {
+                    <div className="card " style={{ marginRight: '.5rem' }} key={key}>
+                        {actor.profile_path != null ? <img className="card-img-top" src={`${baseimg}w200/${actor.profile_path}`} alt="person" /> :
+                            <Unknownuser className="card-img-top" style={{ paddingBottom: '3.5rem', height: '100%' }} />}
 
-        if (typeof (cast) != 'undefined') {
-            console.log('cast', cast)
-
-            var c = cast.map((actor, key) => {
-                return ({
-                    post: <div className="card" key={key}>
-                        {actor.profile_path != null ? <img className="card-img-top" src={`${baseimg}w138/${actor.profile_path}`} alt="person photo" /> : ''}
-
-                        <div className="card-body">
-                            <h5 className="card-title">{actor.name}</h5>
-                            <p className="card-text">{actor.character}</p>
+                        <div className="card-body people">
+                            <a href={`https://www.themoviedb.org/person/${actor.id}` } target='_blank'><h6 className="card-title">{actor.name}</h6></a>
+                            <p className="card-text" style={{ fontSize: ".8rem" }}>{actor.character}</p>
                         </div>
                     </div>
-                })
-            })
-            console.log('type', c)
-            console.log("cards1", cards)
-            setCards(c)
-            console.log("cards2", cards)
-        }
+                )
+            })}
+
+        </Carousel>
 
 
-    }, [cast])
-    return (<>
-
-        {cards.map((card, key) => {
-
-            <div key={key}>
-                {card.post}
-            </div>
-        })}
-
-
-
-
-
-    </>)
+    </div>)
 
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Preloader from './preloader.jsx'
-import Carousel from './Slider/carousel'
+import Carousel from './Slider/swiper'
 import Slide from './Slider/slider'
 
 function Home() {
@@ -26,7 +26,7 @@ function Home() {
     return (<>
         { isloading ?
             <Preloader /> :
-            <div>
+            <div className='container-fluid'>
                 <h1>HOME PAGE</h1>
 
                 <Carousel autoHeight={true} >
