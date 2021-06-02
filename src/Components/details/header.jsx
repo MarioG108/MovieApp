@@ -1,10 +1,6 @@
-import React from 'react'
-
+const baseimg = 'https://image.tmdb.org/t/p/'
 function Header({ poster_path, title, release_date, overview, vote_average, backdrop_path, genres }) {
-
-    const baseimg = 'https://image.tmdb.org/t/p/'
-
-    return (<div className='details-header' style={{ backgroundImage: `url(${baseimg}/original/${backdrop_path})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+    return (<div className='details-header' style={{ backgroundImage: `url(${baseimg}/original/${backdrop_path})`}}>
         <div className="filter">
             <div className="container">
                 <div className="row">

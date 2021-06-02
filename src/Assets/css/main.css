@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -8,7 +9,7 @@ html, body {
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Dosis', sans-serif;
   background-color: #22272e;
   color: #fff;
   font-weight: normal;
@@ -55,6 +56,7 @@ hr {
   height: 100%;
   transition: transform .3s ease-in-out;
   z-index: 0;
+  min-height: 150px;
 }
 
 .card-body.people {
@@ -63,15 +65,17 @@ hr {
   padding: .5rem !important;
   padding-top: 1.25rem !important;
 }
-
+.card p{
+  color: black;
+}
 .card:hover {
   z-index: 5;
   transform: scale(1.1);
 }
 
-.card:hover span {
+.card span {
   scale: 10%;
-  color: red;
+  color: #1a212a;
 }
 
 .card:hover>.card-img-overlay {
@@ -101,7 +105,7 @@ hr {
 
 .slide-description {
   padding-top: 5px;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   text-align: justify;
 }
 
@@ -132,6 +136,7 @@ hr {
 .details-data>.description {
   margin-top: 3rem;
   font-size: 1.3rem;
+  margin-right: 5px;
 }
 
 .details-header {

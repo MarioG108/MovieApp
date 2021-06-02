@@ -1,6 +1,6 @@
 import React from 'react'
 // Import Swiper React components
-import SwiperCore, { Navigation, Scrollbar, Lazy,Mousewheel } from 'swiper'
+import SwiperCore, { Navigation, Scrollbar, Lazy, Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/swiper.scss';
@@ -8,9 +8,9 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 import "swiper/components/lazy/lazy.min.css"
 import 'swiper/components/navigation/navigation.scss';
 // install Swiper modules
-SwiperCore.use([Navigation, Scrollbar, Lazy,Mousewheel]);
+SwiperCore.use([Navigation, Scrollbar, Lazy, Mousewheel]);
 
-function Carousel({ children ,loop=true}) {
+function Carousel({ children, loop = true }) {
 
     return (
         <>
@@ -18,7 +18,7 @@ function Carousel({ children ,loop=true}) {
             <Swiper
                 watchSlidesProgress={true}
                 watchSlidesVisibility={true}
-                mousewheel={{releaseOnEdges:true}}
+                mousewheel={{ releaseOnEdges: true }}
                 preloadImages={true}
                 breakpoints={{
                     // when window width is >= 320
