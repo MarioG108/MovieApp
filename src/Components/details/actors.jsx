@@ -1,6 +1,6 @@
 import Carousel from '../Slider/swiper'
 import { ReactComponent as Unknownuser } from '../../Assets/icon/unknowuser.svg'
-const baseimg = 'https://image.tmdb.org/t/p/'
+const baseimg = 'https://image.tmdb.org/t/p/' 
 
 function Crews({ cast }) {
     return (<div className="container">
@@ -10,7 +10,7 @@ function Crews({ cast }) {
                 return (
 
                     <div className="card " style={{ marginRight: '.5rem' }} key={key}>
-                        {actor.profile_path != null ? <img className="card-img-top" src={`${baseimg}w200/${actor.profile_path}`} alt="person" /> :
+                        {actor.profile_path != null ? <img className="card-img-top" src={`${baseimg}w200/${actor.profile_path}`} alt="person" loading={"lazy"} /> :
                             <Unknownuser className="card-img-top" style={{ paddingBottom: '3.5rem', height: '100%' }} />}
 
                         <div className="card-body people">

@@ -6,7 +6,7 @@ import NotFound from './Components/404'
 import { HashRouter as Router, Route, Switch, Redirect, } from 'react-router-dom';
 
 function App() {
-  return (
+  return (  
     <Router>
       <Navbar/>
       <div className="container-fluid" style={{ paddingTop: '70px' }}>
