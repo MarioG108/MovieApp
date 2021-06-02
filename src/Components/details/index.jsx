@@ -1,53 +1,46 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-import Preloader from '../preloader.jsx'
-import NotFound from '../404'
+import React, { useState, useEffect } from 'react';
 import Header from './header';
-import Videos from './videos'
-import Crews from './actors'
-import { GetDetails, GetVideos, GetCredits } from '../../Services/apicontroller'
+import Preloader from '../preloader.jsx'
+const api_key = '2dc9a9ee49a9191b5b1a629fa423fe71';
 
+async function getDetails(mediaId = 284054) {
+    try {
+        const endpoint = `https://api.themoviedb.org/3/movie/${mediaId}?api_key=${api_key}`;
+        // const endpoint = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${api_key}`;
+        const requestConfig = { method: 'get', mode: 'cors', headers: { 'Content-Type': 'application/json' } }
+        const response = await fetch(endpoint, requestConfig)
+        return response;
+    } catch (error) { console.error(error) }
+
+}
 
 function Details() {
-    const [hasError, setHasError] = useState(false)
-    const { movie_id } = useParams()
     const [isloading, setIsloading] = useState(true)
     const [mediainfo, setMediainfo] = useState({})
-    const [video, setVideo] = useState([{}])
-    const [crew, setCrew] = useState([{}])
 
     useEffect(() => {
         async function load() {
-            const response = await GetDetails(movie_id)
+            const response = await getDetails()
             if (response.ok) {
                 const details = await response.json()
                 setMediainfo(details)
-
-                GetVideos(movie_id).then(
-                    results => setVideo(results)
-                )
-                const credits = await GetCredits(movie_id)
-                if (credits.ok) {
-                    const creditsDetails = await credits.json()
-                    setCrew(creditsDetails)
-                }
                 setIsloading(false)
-            }
-            else {
-                setHasError(true)
             }
         }
         if (isloading) {
             load()
+
         }
-    }, [isloading])
-    return (<>{
-            hasError ? <NotFound/>: 
-            isloading ? <Preloader /> : <div>
-            <Header {...mediainfo} />
-            <Crews cast={crew.cast} />
-            <Videos videos={video.results} />
-        </div>
-    }</>)
+
+    })
+
+    return (<>
+        {
+            isloading ?
+            <Preloader/>
+            
+            : <Header {...mediainfo} />
+        }
+    </>)
 }
 export default Details;

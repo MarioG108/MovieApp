@@ -1,39 +1,47 @@
 import React, { useState, useEffect } from 'react'
 import Preloader from './preloader.jsx'
-import Carousel from './Slider/swiper'
-import Slide from './Slider/slider'
+import Carousel from './Slider/carousel'
+import FormSearch from './FormSearch'
+
 
 function Home() {
     const [isloading, setIsloading] = useState(true)
-    const [slides, setSlides] = useState([])
-    useEffect(() => {
-        if (slides.length <= 50) {
-            var id = slides.length + 1;
-            var date = new Date()
-            const newSlide = <Slide key={id}
-                keyid={id}
-                src={`https://picsum.photos/200/300`}
-                title={'nombre' + id}
-                original_language={'EN'}
-                overview={"Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister."}
-                vote_average={Math.floor(Math.random() * 10)}
-                releaseDate={date.getFullYear()}
-            />
-            setSlides([...slides, newSlide])
-            if (slides.length >= 50) { setIsloading(false) }
-        }
-    }, [slides])
+    const [movies,setmovies]= useState([]);
+    const [txtSearch,setTxtSearch] = useState('');
+
+
+   
+
+    useEffect(()=>{
+        fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad`)
+        .then(respuesta => respuesta.json())
+        .then(data=> setmovies([...data.results]));
+        setIsloading(false)
+      },[])
+
+      const handleChange = (e) =>{
+        setTxtSearch(e.target.value)
+    
+      }
+      const handleSubmit = (e) =>{
+        e.preventDefault();
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad&query=${txtSearch}`)
+        .then(respuesta => respuesta.json())
+        .then(data=> setmovies([...data.results]));
+      }
     return (<>
-        { isloading ?
-            <Preloader /> :
-            <div className='container-fluid'>
-                <h1>HOME PAGE</h1>
+   
+    {            isloading ?
+        <Preloader/>
+        
+        :  <div>
+    <FormSearch  handleChange={handleChange}
+    handleSubmit={handleSubmit} txtSearch={txtSearch}/>
+        <h1>HOME PAGE</h1>
+        <Carousel movies={movies}  />
+           
 
-                <Carousel autoHeight={true} >
-                    {slides}
-                </Carousel>
-
-            </div>}
+    </div>}
     </>
     )
 }
