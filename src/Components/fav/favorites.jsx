@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 import Slide from '../Slider/slider';
 import Carousel from '../Slider/swiper'
+import { GetDetails } from '../../Services/apicontroller'
 
 function GetFavorites() {
     var favorites = localStorage.getItem('favorites');
+
     if (favorites === null) {
-        localStorage.setItem('favorites', "");
+        let data = []
+        localStorage.setItem('favorites', JSON.stringify(data));
         favorites = localStorage.getItem('favorites');
     }
     return favorites
-
 }
 function AddFavorite(fav) {
     var data = GetFavorites();
@@ -33,17 +35,14 @@ function RemoveFavorite(fav) {
 
 
 export default function AddFavorites({ id }) {
-    const [isfavorite, setIsfavorite] = useState()
+    const [isfavorite, setIsfavorite] = useState(false)
     useEffect(() => {
         hasKey()
     }, [])
 
     function hasKey() {
         var favs = JSON.parse(GetFavorites())
-
-        //var d = favs.includes(x => {     x.id === id })
         var d = favs.filter(e => e.id === id).length > 0
-        console.log(d)
         setIsfavorite(!d)
     }
 
@@ -61,8 +60,8 @@ export default function AddFavorites({ id }) {
     }
 
     return (
-        <> { isfavorite ? <input type="submit" value="add to favorite" onClick={HandleAdd} className="btn btn-success" /> :
-            <input type="submit" value="delete to favorite" onClick={Handledelete} className="btn btn-danger" />}</>
+        <> { isfavorite ? <input type="submit" value="Add to favorites" onClick={HandleAdd} className="btn btn-success" /> :
+            <input type="submit" value="Delete from favorites" onClick={Handledelete} className="btn btn-danger" />}</>
     );
 
 }
@@ -72,18 +71,24 @@ export function ShowFavs() {
 
     useEffect(() => {
         setFavs([...JSON.parse(GetFavorites())])
-        console.log(favs)
+        async function load() {
+            var a = favs.map(x => {
+                return GetDetails(x.id)
+            })
+            return a
+        }
+        load()
+
     }, [])
 
     return (<>
         <Carousel>
-            <div> {favs.map(x => {
+            {favs.map(x => {
                 return (
-                    <Slide id={x.id}></Slide>
+                    <Slide id={x.id} overview=""></Slide>
                 )
             }
             )}
-            </div>
         </Carousel>
 
     </>

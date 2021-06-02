@@ -6,7 +6,7 @@ function Videos({ videos = "[]" }) {
                 <div className="container ">
                     <hr />
                     <h3>Videos <span>({videos.length})</span></h3>
-                    {videos.lengt > 0 ?
+                    {videos.length > 0 ?
                         <div id="Carousel-videos" className="carousel slide carouselmovie" data-ride="carousel" data-interval="0">
                             <ol class="carousel-indicators">
                                 {videos.map((video, key) => {

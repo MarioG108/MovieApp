@@ -10,8 +10,8 @@ import { GetDetails, GetVideos, GetCredits } from '../../Services/apicontroller'
 
 function Details() {
     const [hasError, setHasError] = useState(false)
-    const { movie_id } = useParams()
     const [isloading, setIsloading] = useState(true)
+    const { movie_id } = useParams()
     const [mediainfo, setMediainfo] = useState({})
     const [video, setVideo] = useState([{}])
     const [crew, setCrew] = useState([{}])
