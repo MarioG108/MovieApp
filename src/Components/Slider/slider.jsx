@@ -1,23 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Slide(props) {
-    const { keyid, src, title, releaseDate, original_language, overview, vote_average } = { ...props }
+function Slide({ id, poster_path, title, release_date, original_language, overview, vote_average }) {
+    
  
     return (
-        <div key={keyid} className="card ">
-            <img src={`${src}/?braker=${keyid} `} alt={keyid} className="card-img-top swiper-lazy" loading="lazy" />
+        <div key={id} className="card ">
+            <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt={id} className="card-img-top swiper-lazy" loading="lazy" />
             <div className="card-img-overlay" >
 
                 <div>
-                    <span className="card-title slide-title" >{title} ({original_language})</span>
+                    <span className="card-title slide-title" ><Link to={`/details/${id}`}> {title}</Link> {original_language}</span>
                 </div>
                 <div className="slide-info">
                     <span className="card-text slide-info-vote"><i className="fas fa-star" style={{ color: '#ffa41c' }}></i> {vote_average}</span>
-                    <span className="card-text slide-info-date">{releaseDate}</span>
+                    <span className="card-text slide-info-date">{release_date}</span>
                 </div>
                 <div>
 
-                    <p className="card-text slide-description">{overview.substring(0, 180) + '...'}</p>
+                    <p className="card-text slide-description">{overview}</p>
                 </div>
 
             </div>
