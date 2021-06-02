@@ -61,7 +61,7 @@ function Carousel({ children, loop = true }) {
                             return (
                                 <SwiperSlide key={index} className="swiper-lazy"   >
                                     {child}
-                                    <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                   {/* <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>*/}
                                 </SwiperSlide>
                             )
                         }) : <div className="wrapper" ><div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div></div>

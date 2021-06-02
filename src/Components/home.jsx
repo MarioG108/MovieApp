@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Preloader from './preloader.jsx'
 import Carousel from './Slider/carousel'
+import {ShowFavs} from './fav/favorites'
 import FormSearch from './FormSearch'
 
 
@@ -38,7 +39,7 @@ function Home() {
         <h1>Trending movies this week</h1>
         <Carousel movies={movies} />
 
-
+        {/*<ShowFavs/>*/}
       </div>}
   </>
   )

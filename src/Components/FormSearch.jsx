@@ -10,7 +10,7 @@ const FormSearch = ({ handleSubmit, txtSearch, handleChange }) => {
 
             </div>
             <div class="col-auto col-xs-5">
-                <input type="submit" className="btn btn-primary mb-3" />
+                <input type="submit" value="Search" className="btn btn-primary mb-3" />
 
             </div>
         </form>
