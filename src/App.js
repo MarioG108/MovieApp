@@ -3,7 +3,7 @@ import Home from './Components/home'
 import Details from './Components/details/index'
 import Footer from './Components/navs/footer'
 import NotFound from './Components/404'
-import { BrowserRouter as Router, Route, Switch, Redirect, } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect, } from 'react-router-dom';
 
 function App() {
   return (
