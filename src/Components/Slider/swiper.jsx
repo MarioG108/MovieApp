@@ -56,15 +56,23 @@ function Carousel({ children, loop = true }) {
 
                 {
 
-                    typeof (children) != 'undefined' && children.length > 1 ?
-                        children.map((child, index) => {
-                            return (
-                                <SwiperSlide key={index} className="swiper-lazy"   >
-                                    {child}
-                                   {/* <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>*/}
-                                </SwiperSlide>
-                            )
-                        }) : <div className="wrapper" ><div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div></div>
+                    typeof (children) != 'undefined' ?
+                        children.length > 1 ?
+                            children.map((child, index) => {
+                                return (
+                                    <SwiperSlide key={index} className="swiper-lazy"   >
+                                        {child}
+                                        {/* <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>*/}
+                                    </SwiperSlide>
+                                )
+                            }) : <SwiperSlide key={0} className="swiper-lazy"   >
+                                {children}
+
+                            </SwiperSlide>
+
+
+
+                        : <div className="wrapper" ><div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div></div>
 
                 }
 

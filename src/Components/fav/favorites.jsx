@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import Slide from '../Slider/slider';
 import Carousel from '../Slider/swiper'
-import { GetDetails } from '../../Services/apicontroller'
+import { GetDetails, GetManyDetails } from '../../Services/apicontroller'
 
 function GetFavorites() {
     var favorites = localStorage.getItem('favorites');
+    if (favorites === null || favorites === '') {
+        console.log("is", 'vacio')
 
-    if (favorites === null) {
         let data = []
         localStorage.setItem('favorites', JSON.stringify(data));
         favorites = localStorage.getItem('favorites');
@@ -34,62 +35,96 @@ function RemoveFavorite(fav) {
 }
 
 
-export default function AddFavorites({ id }) {
+export function AddFavorites({ id }) {
     const [isfavorite, setIsfavorite] = useState(false)
-    useEffect(() => {
-        hasKey()
-    }, [])
+    useEffect(() => { hasKey() }, [])
 
     function hasKey() {
         var favs = JSON.parse(GetFavorites())
-        var d = favs.filter(e => e.id === id).length > 0
-        setIsfavorite(!d)
+        var exist = favs.filter(e => e.id === id).length > 0
+        setIsfavorite(!exist)
     }
 
     function HandleAdd() {
-
         AddFavorite(id)
         setIsfavorite(isfavorite => !isfavorite)
     }
     function Handledelete() {
         setIsfavorite(isfavorite => !isfavorite)
-
         RemoveFavorite(id)
-
-
     }
 
     return (
-        <> { isfavorite ? <input type="submit" value="Add to favorites" onClick={HandleAdd} className="btn btn-success" /> :
-            <input type="submit" value="Delete from favorites" onClick={Handledelete} className="btn btn-danger" />}</>
+        <div className='mb-4'> { isfavorite ? <input type="submit" value="Add to favorites" onClick={HandleAdd} className="btn btn-success" /> :
+            <input type="submit" value="Delete from favorites" onClick={Handledelete} className="btn btn-danger" />}</div>
     );
 
 }
 
 export function ShowFavs() {
-    const [favs, setFavs] = useState([{}])
+    const [favs, setFavs] = useState([])
+    const [isloading, setIsloading] = useState(true)
+    const [movieDetails, setMovieDetails] = useState([])
 
     useEffect(() => {
-        setFavs([...JSON.parse(GetFavorites())])
-        async function load() {
-            var a = favs.map(x => {
-                return GetDetails(x.id)
-            })
-            return a
-        }
-        load()
+        setFavs(() => {
+            return [...JSON.parse(GetFavorites())];
+        })
+        setIsloading(false);
 
     }, [])
 
-    return (<>
-        <Carousel>
-            {favs.map(x => {
-                return (
-                    <Slide id={x.id} overview=""></Slide>
-                )
+    useEffect(() => {
+        async function getDatas() {
+            const r = await GetManyDetails(favs)
+            return r
+        }
+        async function getdetail() {
+            const response = await GetDetails(favs[0].id)
+            if (response.ok) {
+                const details = await response.json()
+                setMovieDetails([details])
             }
-            )}
-        </Carousel>
+        }
+
+        if (isloading === false) {
+            if (favs.length > 0) {
+                if ('id' in favs[0]) {
+                    getDatas()
+                        .then(response => {
+                            if (response.length > 1) {
+                                response.map(async movie => {
+                                    const result = await movie.json()
+                                    setMovieDetails((prevVal) => [...prevVal, result])
+                                })
+                            }
+                            else {
+                                getdetail()
+                            }
+                        })
+                } else {
+                    getdetail()
+                }
+            }
+        }
+    }, [favs])
+
+    return (<>
+        <h1>My favorites</h1>{movieDetails.length > 0 ?
+            <Carousel loop={false}>
+                {movieDetails.length > 1 ?
+                    movieDetails.map((movie, index) => {
+                        return (
+                            <Slide {...movie} key={index}></Slide>
+                        )
+                    }) :
+                    <Slide {...movieDetails[0]} ></Slide>
+                }
+            </Carousel> :
+            <div>
+                <p >You have not favorites, yet.</p>
+                <p> Search for a movie and click on Add to favorites.</p>
+            </div>}
 
     </>
     )
@@ -97,3 +132,6 @@ export function ShowFavs() {
 
 
 }
+
+
+export default AddFavorites;

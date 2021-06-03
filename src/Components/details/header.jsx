@@ -1,13 +1,18 @@
 import AddFavorites from './../fav/favorites'
+import { ReactComponent as NoImage } from '../../Assets/icon/no-image.svg'
+
 
 const baseimg = 'https://image.tmdb.org/t/p/'
 function Header({id, poster_path, title, release_date, overview, vote_average, backdrop_path, genres }) {
-    return (<div className='details-header' style={{ backgroundImage: `url(${baseimg}/original/${backdrop_path})`}}>
+    return (
+    <div className='details-header mb-4' style={{ backgroundImage: `url(${baseimg}/original/${backdrop_path})`}}>
         <div className="filter">
             <div className="container">
                 <div className="row">
                     <div className="col-12  col-sm-12 col-md-5 ">
-                        <img src={`${baseimg}/w500/${poster_path}`} alt="poster_image" />
+                        
+                        {poster_path != null ? <img src={`${baseimg}/w500/${poster_path}`} alt="poster_image" /> :
+                                    <NoImage className="card-img-top" style={{ paddingBottom: '3.5rem', height: '100%' }} />}
                     </div>
                     <div className="col-12 col-sm-12 col-md-7 details-data" >
                         <div className="row title">

@@ -29,3 +29,19 @@ export async function GetCredits(movie_id = 8392) {
         return await makeGetRequest(endpoint)
     } catch (error) { console.warn(error) }
 }
+export async function GetManyDetails(movies_ids) {
+    try {
+        var responses;
+        if (movies_ids.length > 1) {
+            responses = await Promise.all(movies_ids.map(async movie => {
+                const result = await GetDetails(movie.id)
+                return result
+            }))
+        } else {
+            const result = await GetDetails(movies_ids.id)
+
+            return result
+        }
+        return responses
+    } catch (err) { console.log(err) }
+}
