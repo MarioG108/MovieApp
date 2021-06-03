@@ -16,12 +16,12 @@ useEffect(() => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ml-auto">
-                        <li className={`nav-item ${currentpage==='/' ? 'active':'inactive'} `}>
+                    <ul className="navbar-nav ml-auto" data-toggle="collapse" data-target=".navbar-collapse.show">
+                        <li className={`nav-item d-flex justify-content-end ${currentpage==='/' ? 'active':'inactive'} `}>
                             <Link className="nav-link" to="/">Home <span className="sr-only" >(current)</span></Link>
                         </li>
 
-                        <li className={`nav-item ${currentpage.includes('Favorites')? 'active':'inactive'} `}>
+                        <li className={`nav-item d-flex justify-content-end ${currentpage.includes('Favorites')? 'active':'inactive'} `}>
                             <Link className="nav-link" to="/Favorites/">My Favorites </Link>
                         </li>                    
 
