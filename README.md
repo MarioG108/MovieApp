@@ -2,6 +2,7 @@
 This app is deployed at my [GitHubPages](https://mariog108.github.io/MovieApp) 
 
 >### Please test it and enjoy it. https://mariog108.github.io/MovieApp
+>>#### This Proyect use LocalStorage as db to save your favorites. Just a tiny Json
 <br/>
 
 # The Movie Database (TMDB) API
