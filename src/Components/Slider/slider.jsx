@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Slide({ id, poster_path, title, release_date, original_language, overview, vote_average }) {
+function Slide({ id, poster_path, title, release_date, original_language, overview="", vote_average }) {
 
 
     return (

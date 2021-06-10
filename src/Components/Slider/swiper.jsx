@@ -43,8 +43,8 @@ function Carousel({ children, loop = true }) {
                         spaceBetween: 3
                     },
                     1024: {
-                        slidesPerView: 8,
-                        spaceBetween: 1
+                        slidesPerView: 6,
+                        spaceBetween: 0
                     },
                 }}
                 loop={loop}
