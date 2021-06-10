@@ -32,8 +32,11 @@ function Home() {
   }  
   const handleSubmit = (e) => {
     e.preventDefault();
-    SearchMovie(txtSearch).then(data=>setmovies([...data.results])) 
+    
+    if(txtSearch !== null || txtSearch.trim() === ' ')
+    {SearchMovie(txtSearch).then(data=>setmovies([...data.results])) }
   }
+  
   return (<>
 
     {            isloading ?
