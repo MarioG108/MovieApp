@@ -49,10 +49,15 @@ export async function GetCredits(movie_id = 8392) {
 export async function GetTrending(time_window = 'week', type = 'movie') {
     try {
         const url = `${baseUrl}/trending/${type}/${time_window}?api_key=${api_key}`
-        return await makeGetRequest(url)
-        //  fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad`)
-        //   .then(respuesta => respuesta.json())
-        //   .then(data => setmovies([...data.results]));
-
+        return await makeGetRequest(url)      
+    } catch (error) { console.warn(error) }
+}
+export async function FindMovie(searchQuery) {
+    try {
+        const url = `${baseUrl}/search/movie?query=${searchQuery}&api_key=${api_key}`
+        return await makeGetRequest(url)      
+        // fetch(`https://api.themoviedb.org/3/search/movie?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad&query=${txtSearch}`)
+        // .then(respuesta => respuesta.json())
+        // .then(data => setmovies([...data.results]));
     } catch (error) { console.warn(error) }
 }

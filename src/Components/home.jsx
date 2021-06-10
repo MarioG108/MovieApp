@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react'
 import Preloader from './preloader.jsx'
 import Carousel from './Slider/carousel'
 import FormSearch from './FormSearch'
-import { GetTrending } from '../Services/apicontroller.js'
+import { GetTrending, FindMovie } from '../Services/apicontroller.js'
 
-
+async function SearchMovie(querySearch) {
+  const response = await FindMovie(querySearch);
+  const data = await (await response).json();
+  return data;
+}
 
 function Home() {
   const [isloading, setIsloading] = useState(true)
@@ -25,14 +29,10 @@ function Home() {
 
   const handleChange = (e) => {
     setTxtSearch(e.target.value)
-
-  }
-  //SearchForm
+  }  
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad&query=${txtSearch}`)
-      .then(respuesta => respuesta.json())
-      .then(data => setmovies([...data.results]));
+    SearchMovie(txtSearch).then(data=>setmovies([...data.results])) 
   }
   return (<>
 
