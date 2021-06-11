@@ -1,6 +1,7 @@
 import Navbar from './Components/navs/navbar'
 import Home from './Components/home'
-import {ShowFavs} from './Components/fav/favorites'
+import { ShowFavs } from './Components/fav/favorites'
+import { MovieProvider } from './movieContext'
 
 import Details from './Components/details/index'
 import Footer from './Components/navs/footer'
@@ -9,19 +10,22 @@ import { HashRouter as Router, Route, Switch, Redirect, } from 'react-router-dom
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className="container-fluid" style={{ paddingTop: '70px' }}>
-        <Switch>
-          <Route path="/" exact> <Home /></Route>
-          <Route path="/home" exact><Redirect to="/" /></Route>
-          <Route path="/favorites/" exact><ShowFavs /></Route>
-          <Route path="/details/:movie_id" exact> <Details /></Route>
-          <Route path="*"><NotFound /></Route>
-        </Switch>
-      </div>
-      <Footer />
-    </Router>
+    <MovieProvider>
+      <Router>
+        <Navbar />
+        <div className="container-fluid" style={{ paddingTop: '70px' }}>
+          <Switch>
+            <Route path="/" exact> <Home /></Route>
+            <Route path="/home" exact><Redirect to="/" /></Route>
+            <Route path="/favorites/" exact><ShowFavs /></Route>
+            <Route path="/details/:movie_id" exact> <Details /></Route>
+            <Route path="*"><NotFound /></Route>
+          </Switch>
+        </div>
+        <Footer />
+
+      </Router>
+    </MovieProvider>
   );
 }
 
