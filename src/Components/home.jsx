@@ -3,7 +3,13 @@ import Preloader from './preloader.jsx'
 import Carousel from './Slider/carousel'
 import FormSearch from './FormSearch'
 import Upcomming from './Slider/upcomming.jsx'
+import { GetTrending, FindMovie } from '../Services/apicontroller.js'
 
+async function SearchMovie(querySearch) {
+  const response = await FindMovie(querySearch);
+  const data = await (await response).json();
+  return data;
+}
 
 function Home() {
   const [isloading, setIsloading] = useState(true)
@@ -11,31 +17,36 @@ function Home() {
   const [txtSearch, setTxtSearch] = useState('');
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad`)
-      .then(respuesta => respuesta.json())
-      .then(data => setmovies([...data.results]));
-    setIsloading(false)
-  }, [])
+    async function GetTrendings() {
+      const response = await GetTrending()
+      const data = await response.json();
+      setmovies(() => { return [...data.results] })
+      setIsloading(false)
+    }
+
+    if (isloading) { GetTrendings() }
+
+  }, [isloading])
 
   const handleChange = (e) => {
     setTxtSearch(e.target.value)
-
-  }
+  }  
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=7c5d0c6f8811332e3ae2562e7ad9e6ad&query=${txtSearch}`)
-      .then(respuesta => respuesta.json())
-      .then(data => setmovies([...data.results]));
+    
+    if(txtSearch !== null || txtSearch.trim() === ' ')
+    {SearchMovie(txtSearch).then(data=>setmovies([...data.results])) }
   }
+  
   return (<>
 
     {            isloading ?
       <Preloader />
 
       : <div >
-      <div className="container d-flex justify-content-end ">
-        <FormSearch handleChange={handleChange}
-          handleSubmit={handleSubmit} txtSearch={txtSearch} /> </div>
+        <div className="container d-flex justify-content-end ">
+          <FormSearch handleChange={handleChange}
+            handleSubmit={handleSubmit} txtSearch={txtSearch} /> </div>
         <h1>Trending movies this week</h1>
         <Carousel movies={movies} />
       <Upcomming></Upcomming>
