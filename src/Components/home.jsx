@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Preloader from './preloader.jsx'
 import Carousel from './Slider/carousel'
 import FormSearch from './FormSearch'
+import Upcomming from './Slider/upcomming.jsx'
 
 
 function Home() {
@@ -37,7 +38,7 @@ function Home() {
           handleSubmit={handleSubmit} txtSearch={txtSearch} /> </div>
         <h1>Trending movies this week</h1>
         <Carousel movies={movies} />
-
+      <Upcomming></Upcomming>
       </div>}
   </>
   )

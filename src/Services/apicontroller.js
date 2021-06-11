@@ -45,3 +45,11 @@ export async function GetManyDetails(movies_ids) {
         return responses
     } catch (err) { console.log(err) }
 }
+
+
+export async function GetUpcomming  () {
+    try {
+        const endpoint = `${baseUrl}movie/upcoming?api_key=${api_key}`;
+        return await makeGetRequest(endpoint)
+    } catch (error) { console.warn(error) }
+}
