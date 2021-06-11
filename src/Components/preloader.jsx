@@ -1,7 +1,6 @@
-import preloader from '../Assets/icon/pre-loader.gif'
 function Preloader()
 {
-    return(<div className="center"><img src={preloader} alt="" /></div>)
+    return(<div className="center"><p className="m-auto" ><i class="fas fa-circle-notch fa-spin text-5xl"></i></p></div>)
 }
 
 export default Preloader;

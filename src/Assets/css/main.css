@@ -29,7 +29,7 @@ hr {
   height: 2.5rem;
   /* Footer height */
 }
-
+.text-5xl { font-size: 3rem; }
 .nav {
   position: fixed;
   width: 100%;

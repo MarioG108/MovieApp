@@ -1,34 +1,33 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useMemo } from 'react'
 import Preloader from './preloader.jsx'
 import Carousel from './Slider/carousel'
 import FormSearch from './FormSearch'
 import Upcomming from './Slider/upcomming.jsx'
-import { GetTrending, FindMovie } from '../Services/apicontroller.js'
-import { MovieContext } from '../movieContext'
+import { FindMovie } from '../Services/apicontroller.js'
+import { MovieContext } from '../Context/movieContext'
 
 async function SearchMovie(querySearch) {
   const response = await FindMovie(querySearch);
-  const data = await (await response).json();
+  const data = await response.json();
   return data;
 }
 
 function Home() {
+
   const [isloading, setIsloading] = useState(true)
-  const [movies, setmovies] = useState([]);
+  const [movies, setmovies] = useContext(MovieContext);
   const [txtSearch, setTxtSearch] = useState('');
-  const  value = useContext(MovieContext)
+
+  const movieList = useMemo(() => movies, [movies, setmovies])
 
   useEffect(() => {
-    async function GetTrendings() {
-      const response = await GetTrending()
-      const data = await response.json();
-      setmovies(() => { return [...data.results] })
+    if (isloading && movieList != null) {
+      console.log("list:", movieList);
+      console.log(movies);
       setIsloading(false)
     }
 
-    if (isloading) { GetTrendings() }
-    console.log(value);
-  }, [isloading])
+  }, [movieList])
 
   const handleChange = (e) => {
     setTxtSearch(e.target.value)
@@ -42,15 +41,15 @@ function Home() {
   return (<>
 
     {isloading ?
-      <Preloader />
-
-      : <div >
+      <Preloader /> :
+      <div >
         <div className="container d-flex justify-content-end ">
           <FormSearch handleChange={handleChange}
-            handleSubmit={handleSubmit} txtSearch={txtSearch} /> </div>
+            handleSubmit={handleSubmit} txtSearch={txtSearch} />
+        </div>
         <h1>Trending movies this week</h1>
-        <Carousel movies={movies} />
-        <Upcomming></Upcomming>
+        <Carousel movies={movieList} />
+        {/* <Upcomming></Upcomming> */}
       </div>}
   </>
   )

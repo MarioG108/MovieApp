@@ -1,7 +1,7 @@
 import Navbar from './Components/navs/navbar'
 import Home from './Components/home'
 import { ShowFavs } from './Components/fav/favorites'
-import { MovieProvider } from './movieContext'
+import { MovieProvider } from './Context/movieContext'
 
 import Details from './Components/details/index'
 import Footer from './Components/navs/footer'
