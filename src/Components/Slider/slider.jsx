@@ -5,7 +5,7 @@ function Slide({ id, poster_path, title, release_date, original_language, overvi
 
 
     return (
-        <div key={id} className="card ">
+        <div key={id} className="card slide ">
             <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={id} className="card-img-top swiper-lazy" style={{maxHeight: '330px'}}loading="lazy" />
             <div className="card-img-overlay" >
                 <Link to={`/details/${id}`} style={{textDecoration:"none"}}>

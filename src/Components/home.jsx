@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react'
 import Preloader from './preloader.jsx'
 import Carousel from './Slider/carousel'
-import FormSearch from './FormSearch'
+import FormSearch from './search/FormSearch'
 import Upcomming from './Slider/upcomming.jsx'
 import { FindMovie } from '../Services/apicontroller.js'
 import { MovieContext } from '../Context/movieContext'

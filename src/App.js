@@ -2,6 +2,7 @@ import Navbar from './Components/navs/navbar'
 import Home from './Components/home'
 import { ShowFavs } from './Components/fav/favorites'
 import { MovieProvider } from './Context/movieContext'
+import SearchResults from './Components/search/searchResults'
 
 import Details from './Components/details/index'
 import Footer from './Components/navs/footer'
@@ -19,6 +20,7 @@ function App() {
             <Route path="/home" exact><Redirect to="/" /></Route>
             <Route path="/favorites/" exact><ShowFavs /></Route>
             <Route path="/details/:movie_id" exact> <Details /></Route>
+            <Route path="/filter/:Search" exact><SearchResults/></Route>
             <Route path="*"><NotFound /></Route>
           </Switch>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import FormSearch from '../FormSearch'
+import FormSearch from '../search/FormSearch'
 
 function Navbar() {
 

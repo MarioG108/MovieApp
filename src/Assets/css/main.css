@@ -52,7 +52,7 @@ hr {
 
 /* Slider */
 
-.card {
+.card.slide{
   height: 100%;
   transition: transform .3s ease-in-out;
   z-index: 0;
@@ -68,7 +68,7 @@ hr {
 .card p{
   color: black;
 }
-.card:hover {
+.card.slide:hover {
   z-index: 5;
   transform: scale(1.1);
 }
