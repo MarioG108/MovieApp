@@ -13,15 +13,18 @@ function Navbar() {
         <nav className="navbar navbar-expand-md navbar-dark nav" >
             <div className="container">
                 <Link className="navbar-brand" to="/">Movie Master</Link>
-                <div className="d-flex justify-content-end">
-                    {/* <FormSearch /> */}
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                </div>
 
-                <div className="navbar-collapse collapse" id="navbarNav">
-                    <span className=" d-flex justify-content-end ml-auto  " >
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div className="navbar-collapse collapse justify-content-end mt-2 " id="navbarNav">
+                  
+
+                   <FormSearch />
+                    <div className=" d-flex justify-content-end ml-5  " >
+                    <span>
                         <ul className="navbar-nav" data-toggle="collapse" data-target="#navbarNav">
                             <li className={`nav-item d-flex justify-content-end `}>
 
@@ -35,7 +38,9 @@ function Navbar() {
                             </li>
 
                         </ul>
-                    </span>
+                        </span>
+                    </div>
+
                 </div>
             </div>
         </nav>

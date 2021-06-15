@@ -3,16 +3,15 @@ import React from 'react'
 
 const FormSearch = ({ handleSubmit, txtSearch, handleChange }) => {
     return (
-        <form onSubmit={handleSubmit} className="d-flex justify-content-around mr-4">
+        <form onSubmit={handleSubmit} className="d-flex justify-content-end ">
 
-            <div class="">
+
                 <input type="text" value={txtSearch} placeholder="Search..." onChange={handleChange} className="form-control" />
 
-            </div>
-            <div class="">
-                <input type="submit" value="Search" className="btn btn-primary" />
+            
+               <button type="submit"className="btn btn-primary"><i class="fas fa-search"></i></button>
 
-            </div>
+            
         </form>
     )
 }
