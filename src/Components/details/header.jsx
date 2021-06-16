@@ -12,7 +12,7 @@ function Header({id, poster_path, title, release_date, overview, vote_average, b
                     <div className="col-12  col-sm-12 col-md-5 ">
                         
                         {poster_path != null ? <img src={`${baseimg}/w500/${poster_path}`} alt="poster_image" /> :
-                                    <NoImage className="card-img-top" style={{ paddingBottom: '3.5rem', height: '100%' }} />}
+                                    <NoImage className="card-img-top" style={{ display:'flex', height: '100%' }} />}
                     </div>
                     <div className="col-12 col-sm-12 col-md-7 details-data" >
                         <div className="row title">

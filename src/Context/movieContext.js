@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useState } from 'react';
-import { GetTrending, FindMovie } from '../Services/apicontroller.js'
+import { GetTrending } from '../Services/apicontroller.js'
 
 export const MovieContext = createContext();
 
@@ -15,7 +15,7 @@ export function MovieProvider({ children }) {
             setTrending(() => { return [...data.results] })
         }
         if (trendingMovies == null) { GetTrendings() }
-    }, [])
+    }, [trendingMovies])
 
     return (
         <MovieContext.Provider value={[trendingMovies, setTrending]} >
