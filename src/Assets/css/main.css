@@ -8,14 +8,17 @@ html, body {
   height: 100%;
 }
 
-body {
+body  {
   font-family: 'Dosis', sans-serif;
   background-color: #22272e;
   color: #fff;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
+pre{
+  color: #fff;
 
+}
 hr {
   background-color: #fff;
 }
@@ -29,6 +32,24 @@ hr {
   height: 2.5rem;
   /* Footer height */
 }
+
+#footer a{
+  color:#fff;
+}
+#About {
+min-height: 65vh;
+width: 100vw;
+font-size: 1.2rem;
+background-image: url('../backgrounds/DominicanRep_unsplash.jpg');
+background-position: center;
+background-size: cover;
+clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 95%);
+
+}
+#About >div{
+  border-radius: 10px 10px 10px 0px}
+.active{text-decoration: underline;}
+
 .text-5xl { font-size: 3rem; }
 .nav {
   position: fixed;

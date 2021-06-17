@@ -18,7 +18,6 @@ function Carousel({ children, loop = true }) {
             <Swiper
                 watchSlidesProgress={true}
                 watchSlidesVisibility={true}
-                mousewheel={{ releaseOnEdges: true }}
                 preloadImages={true}
                 breakpoints={{
                     // when window width is >= 320
@@ -43,7 +42,7 @@ function Carousel({ children, loop = true }) {
                         spaceBetween: 3
                     },
                     1024: {
-                        slidesPerView: 6,
+                        slidesPerView: 7,
                         spaceBetween: 0
                     },
                 }}

@@ -58,8 +58,11 @@ function Results() {
                     <h5 className="mr-3">Filter <span style={{ marginRight: "0" }}>{`${Search.toUpperCase()}`}</span> by year of release:</h5>
                     <form className="d-flex form-group" onSubmit={(e) => { e.preventDefault(); filterMovies() }} method="post">
                         <input className="form-control" type="number" name="Year" id="year" min="1888"
-                            placeholder="Release year" onChange={(e) => setFilterValue(e.target.value)} defaultValue={filterValue} pattern="\d*" />
-                        <input type="submit" className="btn btn-info" value="Filter" /></form>
+                            placeholder="Release year" onChange={(e) => setFilterValue(e.target.value)} value={filterValue} pattern="\d*" />
+                        <input type="submit" className="btn btn-success ml-2" value="Apply filter" />
+                        {(filterValue.length > 0) ? <button className='btn btn-outline-danger ml-2' onClick={_=> {setFilterValue(''); filterMovies()}}><i class="fas fa-broom"></i></button>:'' }
+                        
+                        </form>
 
                 </div>
             </div>

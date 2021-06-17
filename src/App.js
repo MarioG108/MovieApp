@@ -3,7 +3,7 @@ import Home from './Components/home'
 import { ShowFavs } from './Components/fav/favorites'
 import { MovieProvider } from './Context/movieContext'
 import SearchResults from './Components/search/searchResults'
-
+import AboutPage from './Components/contact/about'
 import Details from './Components/details/index'
 import Footer from './Components/navs/footer'
 import NotFound from './Components/404'
@@ -14,10 +14,11 @@ function App() {
     <MovieProvider>
       <Router>
         <Navbar />
-        <div className="container-fluid" style={{ paddingTop: '70px' }}>
+        <div className="container-fluid" style={{ paddingTop: '64px' }}>
           <Switch>
             <Route path="/" exact> <Home /></Route>
             <Route path="/home" exact><Redirect to="/" /></Route>
+            <Route path="/About" exact><AboutPage/></Route>
             <Route path="/favorites/" exact><ShowFavs /></Route>
             <Route path="/details/:movie_id" exact> <Details /></Route>
             <Route path="/filter/:Search" exact><SearchResults/></Route>

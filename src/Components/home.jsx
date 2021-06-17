@@ -30,7 +30,7 @@ function Home() {
     {isloading ?
       <Preloader /> :
       <div >
-        <h1>Trending movies this week</h1>
+        <h1><i class="fas fa-ticket-alt"></i> Trending movies this week</h1>
         <Carousel movies={movieList} />
         {/* <Upcomming></Upcomming> */}
       </div>}

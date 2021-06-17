@@ -12,7 +12,7 @@ function Navbar() {
     var nav =
         <nav className="navbar navbar-expand-md navbar-dark nav" >
             <div className="container">
-                <Link className="navbar-brand" to="/">Movie Master</Link>
+                <Link className="navbar-brand" to="/"> <i class="fas fa-film"></i> Movie Master</Link>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
                     <span className="navbar-toggler-icon"></span>
@@ -25,16 +25,14 @@ function Navbar() {
                    <FormSearch />
                     <div className=" d-flex justify-content-end ml-5  " >
                     <span>
-                        <ul className="navbar-nav" data-toggle="collapse" data-target="#navbarNav">
-                            <li className={`nav-item d-flex justify-content-end `}>
-
-                            </li>
+                        <ul className="navbar-nav">
+                  
                             <li className={`nav-item d-flex justify-content-end ${currentpage === '/' ? 'active' : 'inactive'} `}>
-                                <Link className="nav-link" to="/">Home <span className="sr-only" >(current)</span></Link>
+                                <Link className="nav-link" to="/"> <i class="fas fa-ticket-alt"></i> Home <span className="sr-only" >(current)</span></Link>
                             </li>
 
                             <li className={`nav-item d-flex justify-content-end ${currentpage.includes('Favorites') ? 'active' : 'inactive'} `}>
-                                <Link className="nav-link" to="/Favorites/">My Favorites </Link>
+                                <Link className="nav-link" to="/Favorites/"><i class="fas fa-folder-open"></i> My Favorites </Link>
                             </li>
 
                         </ul>

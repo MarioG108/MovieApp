@@ -55,7 +55,7 @@ export function AddFavorites({ id }) {
     }
 
     return (
-        <div className='mb-4'> { isfavorite ? <input type="submit" value="Add to favorites" onClick={HandleAdd} className="btn btn-success" /> :
+        <div className='mb-4'> {isfavorite ? <input type="submit" value="Add to favorites" onClick={HandleAdd} className="btn btn-success" /> :
             <input type="submit" value="Delete from favorites" onClick={Handledelete} className="btn btn-danger" />}</div>
     );
 
@@ -110,7 +110,8 @@ export function ShowFavs() {
     }, [favs])
 
     return (<>
-        <h1>My favorites</h1>{movieDetails.length > 0 ?
+        <h1><i class="fas fa-folder-open"></i> My favorites</h1>
+        {movieDetails.length > 0 ?
             <Carousel loop={false}>
                 {movieDetails.length > 1 ?
                     movieDetails.map((movie, index) => {
@@ -121,10 +122,11 @@ export function ShowFavs() {
                     <Slide {...movieDetails[0]} ></Slide>
                 }
             </Carousel> :
-            <div>
-                <p >You have not favorites, yet.</p>
-                <p> Search for a movie and click on Add to favorites.</p>
-            </div>}
+            <div className="d-flex justify-content-center h-100 " style={{ fontSize: "1.4rem" }}>
+                <div>
+                    <p ><i class="far fa-folder-open"></i> You have not favorites, yet.</p>
+                    <p><i class="fas fa-search"></i> Search for a movie and click on Add to favorites.</p></div></div>
+        }
 
     </>
     )
