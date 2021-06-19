@@ -9,24 +9,22 @@ function Navbar() {
     useEffect(() => {
         setCurrentpage(location.pathname)
     }, [location])
-    var nav =
-        <nav className="navbar navbar-expand-md navbar-dark nav" >
-            <div className="container">
-                <Link className="navbar-brand" to="/"> <i class="fas fa-film"></i> Movie Master</Link>
 
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+    return (
+        <nav className="navbar navbar-expand-md navbar-dark nav d-flex align-items-center " >
+            <Link className="navbar-brand" to="/"> <h3 className="mb-0"><i class="fas fa-film"></i> Movie Master </h3></Link>
+
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
+                <span className="navbar-toggler-icon"></span>
+            </button>
 
 
-                <div className="navbar-collapse collapse justify-content-end mt-2 " id="navbarNav">
-                  
-
-                   <FormSearch />
-                    <div className=" d-flex justify-content-end ml-5  " >
+            <div className="navbar-collapse collapse justify-content-end mt-2 align-items-center " id="navbarNav">
+                <FormSearch />
+                <div className=" d-flex justify-content-end ml-5  " >
                     <span>
                         <ul className="navbar-nav">
-                  
+
                             <li className={`nav-item d-flex justify-content-end ${currentpage === '/' ? 'active' : 'inactive'} `}>
                                 <Link className="nav-link" to="/"> <i class="fas fa-ticket-alt"></i> Home <span className="sr-only" >(current)</span></Link>
                             </li>
@@ -36,15 +34,12 @@ function Navbar() {
                             </li>
 
                         </ul>
-                        </span>
-                    </div>
-
+                    </span>
                 </div>
+
             </div>
         </nav>
 
-    return (
-        nav
     )
 }
 

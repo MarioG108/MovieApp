@@ -5,7 +5,7 @@ import NotFound from '../404'
 import Header from './header';
 import Videos from './videos'
 import Crews from './actors'
-import { GetDetails, GetVideos, GetCredits } from '../../Services/apicontroller'
+import { getDetails, getVideos, getCredits } from '../../Services/apicontroller'
 
 
 function Details() {
@@ -18,15 +18,15 @@ function Details() {
 
     useEffect(() => {
         async function load() {
-            const response = await GetDetails(movie_id)
+            const response = await getDetails(movie_id)
             if (response.ok) {
                 const details = await response.json()
                 setMediainfo(details)
 
-                GetVideos(movie_id).then(
+                getVideos(movie_id).then(
                     results => setVideo(results)
                 )
-                const credits = await GetCredits(movie_id)
+                const credits = await getCredits(movie_id)
                 if (credits.ok) {
                     const creditsDetails = await credits.json()
                     setCrew(creditsDetails)

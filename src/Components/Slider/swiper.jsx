@@ -14,7 +14,6 @@ function Carousel({ children, loop = true }) {
 
     return (
         <>
-
             <Swiper
                 watchSlidesProgress={true}
                 watchSlidesVisibility={true}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Slide from '../Slider/slider';
 import Carousel from '../Slider/swiper'
-import { GetDetails, GetManyDetails } from '../../Services/apicontroller'
+import { getDetails, getManyDetails } from '../../Services/apicontroller'
 
 function GetFavorites() {
     var favorites = localStorage.getItem('favorites');
@@ -76,17 +76,16 @@ export function ShowFavs() {
 
     useEffect(() => {
         async function getDatas() {
-            const r = await GetManyDetails(favs)
+            const r = await getManyDetails(favs)
             return r
         }
         async function getdetail() {
-            const response = await GetDetails(favs[0].id)
+            const response = await getDetails(favs[0].id)
             if (response.ok) {
                 const details = await response.json()
                 setMovieDetails([details])
             }
         }
-
         if (isloading === false) {
             if (favs.length > 0) {
                 if ('id' in favs[0]) {
@@ -110,7 +109,7 @@ export function ShowFavs() {
     }, [favs])
 
     return (<>
-        <h1><i class="fas fa-folder-open"></i> My favorites</h1>
+        <h2  className="ml-3"><i class="fas fa-folder-open"></i> My favorites</h2>
         {movieDetails.length > 0 ?
             <Carousel loop={false}>
                 {movieDetails.length > 1 ?

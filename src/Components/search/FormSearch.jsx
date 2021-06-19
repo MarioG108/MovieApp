@@ -10,9 +10,9 @@ const FormSearch = () => {
         e.target[0].value = ""
     }
     return (
-        <form onSubmit={handleSubmit} className="d-flex justify-content-end ">
-            <input type="text" placeholder="Search..." className="form-control" />
-            <button type="submit" className="btn btn-primary"><i className="fas fa-search"></i></button>
+        <form onSubmit={handleSubmit} className="d-flex justify-content-end">
+            <input type="text" placeholder="Search..." className="form-control"  style={{borderTopRightRadius:'0',borderBottomRightRadius:'0'}}/>
+            <button type="submit" className="btn btn-primary" style={{borderTopLeftRadius:'0',borderBottomLeftRadius:'0'}}><i className="fas fa-search"></i></button>
         </form>
     )
 }

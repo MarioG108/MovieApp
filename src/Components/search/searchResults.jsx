@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { FindMovie } from '../../Services/apicontroller';
+import { findMovie } from '../../Services/apicontroller';
 import Card from "./Card";
 import Preloader from '../preloader'
 
@@ -15,7 +15,7 @@ function Results() {
     useEffect(() => {
         const findMovies = async () => {
             setIsLoading(true)
-            const result = await FindMovie(Search)
+            const result = await findMovie(Search)
             if (result.ok) {
                 const data = await result.json()
                 return data

@@ -4,7 +4,7 @@ import Preloader from '../preloader'
 
 import Slider from './slider'
 import Swiper from './swiper'
-import { GetUpcomming } from '../../Services/apicontroller'
+import { getUpcomming } from '../../Services/apicontroller'
 
 function Upcomming() {
     const [mediainfo, setMediainfo] = useState([{}])
@@ -13,7 +13,7 @@ function Upcomming() {
 
     useEffect(() => {
         async function load() {
-            const response = await GetUpcomming()
+            const response = await getUpcomming()
             if (response.ok) {
                 const details = await response.json()
                 setMediainfo(details.results)

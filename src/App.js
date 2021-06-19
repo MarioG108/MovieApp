@@ -14,7 +14,7 @@ function App() {
     <MovieProvider>
       <Router>
         <Navbar />
-        <div className="container-fluid" style={{ paddingTop: '64px' }}>
+        <div className="container-fluid" style={{ paddingTop: '80px' }}>
           <Switch>
             <Route path="/" exact> <Home /></Route>
             <Route path="/home" exact><Redirect to="/" /></Route>

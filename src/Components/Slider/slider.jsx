@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 function Slide({ id, poster_path, title, release_date, original_language, overview="", vote_average }) {
 
-
     return (
         <div key={id} className="card slide ">
             <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={id} className="card-img-top swiper-lazy" style={{minHeight:'100%',display:'flex'}}loading="lazy" />
