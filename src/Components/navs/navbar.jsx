@@ -20,7 +20,7 @@ function Navbar() {
 
 
             <div className="navbar-collapse collapse justify-content-end mt-2 align-items-center " id="navbarNav">
-                <FormSearch />
+           
                 <div className=" d-flex justify-content-end ml-5  " >
                     <span>
                         <ul className="navbar-nav">
@@ -36,7 +36,7 @@ function Navbar() {
                         </ul>
                     </span>
                 </div>
-
+     <FormSearch />
             </div>
         </nav>
 

@@ -16,7 +16,7 @@ function Videos({ videos = "[]" }) {
                             <div className="carousel-inner">
                                 {videos.map((video, key) => {
                                     return (<div className={`carousel-item  ${key === 0 ? 'active' : 'inactive'}`} key={key}>
-                                        <iframe key={key} className="d-block w-100" width="1020" height="480" title={`video${key}`}
+                                        <iframe key={key} className="d-block w-100" width="1020" height="480" title={`video${key}`}  loading="lazy"        
                                             src={`https://www.youtube-nocookie.com/embed/${video.key}`}
                                             frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen></iframe>

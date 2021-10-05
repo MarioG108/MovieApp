@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -101,22 +100,25 @@ clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 95%);
 
 .card:hover>.card-img-overlay {
   visibility: visible;
+  
+  width: 100%;
   display: block;
   bottom: 0 !important;
-  overflow: hidden;
   transition: .4s ease-out;
   background-color: rgba(255, 255, 255, 0.3);
-  top: 0%;
+  font-size: 1rem;
+  padding: 0 auto ;
 }
 
 .card-img-overlay {
   color: black !important;
   backdrop-filter: blur(5px);
   height: fit-content;
-  top: -100%;
+
   overflow: hidden;
+  transition: .2s ease-in;
+  top:auto;
   visibility: hidden;
-  transition: .4s ease-out;
 }
 
 .swiper-container {
@@ -126,22 +128,22 @@ clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 95%);
 
 .slide-description {
   padding-top: 5px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: justify;
 }
 
 .slide-title {
   text-transform: uppercase;
+  font-size: 1.2rem;
 }
 
 .slide-info>* {
-  padding-right: 5px;
-  font-size: 1rem;
+  font-size: 1.rem;
   vertical-align: baseline;
 }
 
 .slide-info-date {
-  font-size: .6rem;
+  font-size: .9em;
 }
 
 /*end*/
@@ -213,3 +215,4 @@ clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 95%);
   width: 100%;
   height: 100%;
 }
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
