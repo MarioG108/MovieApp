@@ -8,7 +8,7 @@ function Videos({ videos = "[]" }) {
                     <h3>Videos <span>({videos.length})</span></h3>
                     {videos.length > 0 ?
                         <div id="Carousel-videos" className="carousel slide carouselmovie" data-ride="carousel" data-interval="0">
-                            <ol class="carousel-indicators">
+                            <ol className="carousel-indicators">
                                 {videos.map((video, key) => {
                                     return (<li data-target="#Carousel-videos" data-slide-to={key} className={`${key === 0 ? 'active' : 'inactive'}`}></li>)
                                 })}

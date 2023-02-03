@@ -12,7 +12,7 @@ function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-md navbar-dark nav d-flex align-items-center " >
-            <Link className="navbar-brand" to="/"> <h3 className="mb-0"><i class="fas fa-film"></i> Movie Master </h3></Link>
+            <Link className="navbar-brand" to="/"> <h3 className="mb-0"><i className="fas fa-film"></i> Movie Master </h3></Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" >
                 <span className="navbar-toggler-icon"></span>
@@ -26,11 +26,11 @@ function Navbar() {
                         <ul className="navbar-nav">
 
                             <li className={`nav-item d-flex justify-content-end ${currentpage === '/' ? 'active' : 'inactive'} `}>
-                                <Link className="nav-link" to="/"> <i class="fas fa-ticket-alt"></i> Home <span className="sr-only" >(current)</span></Link>
+                                <Link className="nav-link" to="/"> <i className="fas fa-ticket-alt"></i> Home <span className="sr-only" >(current)</span></Link>
                             </li>
 
                             <li className={`nav-item d-flex justify-content-end ${currentpage.includes('Favorites') ? 'active' : 'inactive'} `}>
-                                <Link className="nav-link" to="/Favorites/"><i class="fas fa-folder-open"></i> My Favorites </Link>
+                                <Link className="nav-link" to="/Favorites/"><i className="fas fa-folder-open"></i> My Favorites </Link>
                             </li>
 
                         </ul>

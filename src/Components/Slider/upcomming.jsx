@@ -6,16 +6,17 @@ import Slider from './slider'
 import Swiper from './swiper'
 import { getUpcomming } from '../../Services/apicontroller'
 
-function Upcomming() {
+function Upcomming(page) {
     const [mediainfo, setMediainfo] = useState([{}])
     const [hasError, setHasError] = useState(false)
     const [isloading, setIsloading] = useState(true)
 
     useEffect(() => {
         async function load() {
-            const response = await getUpcomming()
+            const response = await getUpcomming(page.page)
             if (response.ok) {
                 const details = await response.json()
+
                 setMediainfo(details.results)
                 
                 setIsloading(false)
@@ -29,7 +30,6 @@ function Upcomming() {
             load()
 
         }
-        console.log("response", mediainfo)
 
     }, [isloading])
     return (<>{

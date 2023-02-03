@@ -13,7 +13,7 @@ function Footer() {
             <div className=" d-flex w-100 justify-content-center mb-3">
                 <Link className="nav-link" to="/About"><h5 className={`pr-2 ${currentpage.includes('/About') ? 'active' : 'inactive'} `} >About Developer</h5></Link>
                 {/* <Link className="nav-link" to="/Contact"><h5 className={`pl-2 ${currentpage.includes('/Contact') ? 'active' : 'inactive'} `}>Contact Me</h5></Link> */}
-                <a className="nav-link" href="https://github.com/MarioG108/MovieApp" target="blank" > <h5><i class="fab fa-github"></i> Github Repository </h5></a>
+                <a className="nav-link" href="https://github.com/MarioG108/MovieApp" target="blank" > <h5><i className="fab fa-github"></i> Github Repository </h5></a>
 
             </div>
             <div className="col-12 d-flex w-100 justify-content-center align-item-bottom">

@@ -60,7 +60,7 @@ function Results() {
                         <input className="form-control" type="number" name="Year" id="year" min="1888"
                             placeholder="Release year" onChange={(e) => setFilterValue(e.target.value)} value={filterValue} pattern="\d*" />
                         <input type="submit" className="btn btn-success ml-2" value="Apply filter" />
-                        {(filterValue.length > 0) ? <button className='btn btn-outline-danger ml-2' onClick={_=> {setFilterValue(''); filterMovies()}}><i class="fas fa-broom"></i></button>:'' }
+                        {(filterValue.length > 0) ? <button className='btn btn-outline-danger ml-2' onClick={_=> {setFilterValue(''); filterMovies()}}><i className="fas fa-broom"></i></button>:'' }
                         
                         </form>
 

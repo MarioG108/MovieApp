@@ -109,7 +109,7 @@ export function ShowFavs() {
     }, [favs])
 
     return (<>
-        <h2  className="ml-3"><i class="fas fa-folder-open"></i> My favorites</h2>
+        <h2  className="ml-3"><i className="fas fa-folder-open"></i> My favorites</h2>
         {movieDetails.length > 0 ?
             <Carousel loop={false}>
                 {movieDetails.length > 1 ?
@@ -123,8 +123,8 @@ export function ShowFavs() {
             </Carousel> :
             <div className="d-flex justify-content-center h-100 " style={{ fontSize: "1.4rem" }}>
                 <div>
-                    <p ><i class="far fa-folder-open"></i> You have not favorites, yet.</p>
-                    <p><i class="fas fa-search"></i> Search for a movie and click on Add to favorites.</p></div></div>
+                    <p ><i className="far fa-folder-open"></i> You have not favorites, yet.</p>
+                    <p><i className="fas fa-search"></i> Search for a movie and click on Add to favorites.</p></div></div>
         }
 
     </>

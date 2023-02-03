@@ -36,21 +36,23 @@ export async function getManyDetails(movies_ids) {
             return result
         }
         return responses
-    } catch (err) { console.log(err) }
+    } catch (err) { console.err(err) }
 }
 
-export async function getUpcomming() {
+export async function getUpcomming(page) {
     try {
-        const endpoint = `${base_url}movie/upcoming?api_key=${api_key}`;
+
+        const endpoint = `${base_url}/movie/upcoming?api_key=${api_key}&page=${page}`; 
+        
         return await makeGetRequest(endpoint)
-    } catch (error) { console.warn(error) }
+    } catch (error) { console.error(error) }
 }
 
 export async function getCredits(movie_id = 8392) {
     try {
         const endpoint = `${base_url}/movie/${movie_id}/credits?api_key=${api_key}`
         return await makeGetRequest(endpoint)
-    } catch (error) { console.warn(error) }
+    } catch (error) { console.error(error) }
 }
 
 export async function getTrending(time_window = 'week', type = 'movie') {
