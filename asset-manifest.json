@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/www.mario-g.com/static/css/main.77606f9f.css",
-    "main.js": "/www.mario-g.com/static/js/main.5efffa4a.js",
-    "static/js/787.cbdbad79.chunk.js": "/www.mario-g.com/static/js/787.cbdbad79.chunk.js",
-    "static/media/DominicanRep_unsplash.jpg": "/www.mario-g.com/static/media/DominicanRep_unsplash.d5207621487c2f594c97.jpg",
-    "index.html": "/www.mario-g.com/index.html",
-    "static/media/unknowuser.svg": "/www.mario-g.com/static/media/unknowuser.5964640064f7c380df0382f1eead26c3.svg",
-    "static/media/no-image.svg": "/www.mario-g.com/static/media/no-image.75410b4fa94a4f52a55ebb8747e2192b.svg",
-    "main.77606f9f.css.map": "/www.mario-g.com/static/css/main.77606f9f.css.map",
-    "main.5efffa4a.js.map": "/www.mario-g.com/static/js/main.5efffa4a.js.map",
-    "787.cbdbad79.chunk.js.map": "/www.mario-g.com/static/js/787.cbdbad79.chunk.js.map"
+    "main.css": "/static/css/main.f78ea40e.css",
+    "main.js": "/static/js/main.8cf3459b.js",
+    "static/js/787.cbdbad79.chunk.js": "/static/js/787.cbdbad79.chunk.js",
+    "static/media/DominicanRep_unsplash.jpg": "/static/media/DominicanRep_unsplash.d5207621487c2f594c97.jpg",
+    "index.html": "/index.html",
+    "static/media/unknowuser.svg": "/static/media/unknowuser.5964640064f7c380df0382f1eead26c3.svg",
+    "static/media/no-image.svg": "/static/media/no-image.75410b4fa94a4f52a55ebb8747e2192b.svg",
+    "main.f78ea40e.css.map": "/static/css/main.f78ea40e.css.map",
+    "main.8cf3459b.js.map": "/static/js/main.8cf3459b.js.map",
+    "787.cbdbad79.chunk.js.map": "/static/js/787.cbdbad79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.77606f9f.css",
-    "static/js/main.5efffa4a.js"
+    "static/css/main.f78ea40e.css",
+    "static/js/main.8cf3459b.js"
   ]
 }
