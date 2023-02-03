@@ -1,6 +1,6 @@
 {
   "short_name": "Movie Master",
-  "name": "Create React App Sample",
+  "name": "Movie App",
   "icons": [
     {
       "src": "./src/Assets/icon/logo192.png",
