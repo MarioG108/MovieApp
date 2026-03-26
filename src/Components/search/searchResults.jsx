@@ -10,8 +10,6 @@ function Results() {
     const [movies, setMovies] = useState([])
     const [filterValue, setFilterValue] = useState("")
     const [result, setResult] = useState(movies)
-    const [currentPage, setCurrentPage] = useState(1)
-    const [totalPages, setTotalPages] = useState(1)
     useEffect(() => {
         const findMovies = async () => {
             setIsLoading(true)
@@ -23,8 +21,6 @@ function Results() {
         }
         findMovies().then(x => {
             setMovies(x.results)
-            setCurrentPage(x.page)
-            setTotalPages(x.total_pages)
             setIsLoading(false)
             console.log(x)
         })
