@@ -1,20 +1,18 @@
 import React from 'react'
 // Import Swiper React components
-import SwiperCore, { Navigation, Scrollbar, Lazy, Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Scrollbar, Mousewheel } from 'swiper/modules'
 // Import Swiper styles
-import 'swiper/swiper.scss';
-import 'swiper/components/scrollbar/scrollbar.scss';
-import "swiper/components/lazy/lazy.min.css"
-import 'swiper/components/navigation/navigation.scss';
-// install Swiper modules
-SwiperCore.use([Navigation, Scrollbar, Lazy, Mousewheel]);
+import 'swiper/css';
+import 'swiper/css/scrollbar';
+import 'swiper/css/navigation';
 
 function Carousel({ children, loop = true }) {
 
     return (
         <>
             <Swiper
+                modules={[Navigation, Scrollbar, Mousewheel]}
                 watchSlidesProgress={true}
                 watchSlidesVisibility={true}
                 preloadImages={true}
@@ -49,7 +47,6 @@ function Carousel({ children, loop = true }) {
                 scrollbar={{ draggable: true }}
                 grabCursor={true}
                 navigation
-                lazy={true}
             >
 
                 {
