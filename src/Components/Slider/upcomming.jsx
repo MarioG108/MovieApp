@@ -18,7 +18,7 @@ function Upcomming(page) {
                 const details = await response.json()
 
                 setMediainfo(details.results)
-                
+
                 setIsloading(false)
             }
             else {
@@ -31,7 +31,7 @@ function Upcomming(page) {
 
         }
 
-    }, [isloading])
+    }, [isloading, page.page])
     return (<>{
         hasError ? <NotFound /> :
             isloading ?

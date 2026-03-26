@@ -7,13 +7,13 @@ import { MovieContext } from '../Context/movieContext'
 function Home() {
 
   const [isloading, setIsloading] = useState(true)
-  const [movies, setmovies] = useContext(MovieContext);
-  const movieList = useMemo(() => movies, [movies, setmovies])
+  const [movies] = useContext(MovieContext);
+  const movieList = useMemo(() => movies, [movies])
 
   useEffect(() => {
     if (isloading && movieList !== null) {setIsloading(false)}
 
-  }, [movieList])
+  }, [movieList, isloading])
 
   return (<>
 

@@ -37,13 +37,15 @@ function RemoveFavorite(fav) {
 
 export function AddFavorites({ id }) {
     const [isfavorite, setIsfavorite] = useState(false)
-    useEffect(() => { hasKey() }, [])
 
-    function hasKey() {
-        var favs = JSON.parse(GetFavorites())
-        var exist = favs.filter(e => e.id === id).length > 0
-        setIsfavorite(!exist)
-    }
+    useEffect(() => {
+        function hasKey() {
+            var favs = JSON.parse(GetFavorites())
+            var exist = favs.filter(e => e.id === id).length > 0
+            setIsfavorite(!exist)
+        }
+        hasKey()
+    }, [id])
 
     function HandleAdd() {
         AddFavorite(id)
@@ -106,7 +108,7 @@ export function ShowFavs() {
                 }
             }
         }
-    }, [favs])
+    }, [favs, isloading])
 
     return (<>
         <h2  className="ml-3"><i className="fas fa-folder-open"></i> My favorites</h2>
